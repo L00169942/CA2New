@@ -19,6 +19,7 @@ def create_directory(ip):
         session = paramiko.SSHClient()
         session.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         session.connect(ip, username='l00169942', password='dalimol123')
+        session.exec_command("sudo-S apt-get install curl")
         connection = session.invoke_shell()
         connection.send("mkdir Lab\n")  # unix command to list
         connection.send('mkdir Lab/Lab1\n')
